@@ -16,22 +16,28 @@ Bitrix\Main\Loader::includeModule('catalog');
 Bitrix\Main\Loader::includeModule('sale');
 
 app()->bind([
-	'SeoPage' => '\Aniart\Main\Models\SeoPage'
+	'SeoPage' => '\Aniart\Main\Models\SeoPage',
+	'Product' => '\Aniart\Main\Models\StubProduct'
 ]);
 app()->singleton([
 	'SeoParamsCollector' => '\Aniart\Main\Seo\SeoParamsCollector',
 	'SeoPagesRepository' => function(\Aniart\Main\ServiceLocator $locator){
 		return new Aniart\Main\Repositories\SeoPagesRepository(HL_SEO_PAGES_ID);
 	},
-	'SmartSeo' => function(\Aniart\Main\ServiceLocator $locator){
+	'SmartSeo' => function(\Aniart\Main\ServiceLocator $locator) {
 		$smartSeo = \Aniart\Main\SmartSeo\SmartSeo::getInstance();
 		try {
 			$smartSeo->init(new \Aniart\Main\SmartSeo\Repositories\HLBlockPagesRepository());
 			return $smartSeo;
+		} catch (Exception $e) {
 		}
-		catch (Exception $e){}
+	},
+	'ProductsRepository' => function(\Aniart\Main\ServiceLocator $locator){
+		return new \Aniart\Main\Repositories\StubProductsRepository(IB_PRODUCTS_ID);
 	}
 ]);
-
 //Ajax-обработчики
-\Aniart\Main\Ajax\AjaxHandlerFactory::init([]);
+\Aniart\Main\Ajax\AjaxHandlerFactory::init([
+	'basket' => '\Aniart\Main\Ajax\Handlers\BasketAjaxHandler',
+	'recent_viewed' => '\Aniart\Main\Ajax\Handlers\RecentViewedAjaxHandler'
+]);

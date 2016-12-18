@@ -9,7 +9,10 @@ class BitrixObserver
 {
     public static function onProlog()
     {
+	    global $APPLICATION;
         self::initAdditionalUserParams();
+	    $APPLICATION->oAsset->addJs('/local/js/jquery.min.js');
+	    $APPLICATION->oAsset->addJs('/local/js/aniart.widget.js');
     }
 
     public static function onEpilog()

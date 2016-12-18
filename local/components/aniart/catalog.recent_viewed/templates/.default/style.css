@@ -1,0 +1,14 @@
+.delete-recent-item{
+	width: 16px;
+	height: 16px;
+	background: url("icon-delete.png") no-repeat;
+	position: absolute;
+	cursor: pointer;
+	top: 5px;
+	right: 15px;
+	display: none;
+}
+
+.bx_catalog_item:hover .delete-recent-item{
+	display: block;
+}
