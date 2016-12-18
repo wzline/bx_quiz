@@ -1,0 +1,52 @@
+{
+  "#/catalog/year_time-zima/(page(\\d+))?#": {
+    "uri_vars": [
+      "",
+      "pageNum"
+    ],
+    "compile": [
+      "seo"
+    ],
+    "seo": {
+      "ru": {
+        "page_prefix": "{{func(pager, pageNum, Страница)}}",
+        "meta_title": "{{$page_prefix}} INTERTOP.UA - Зимняя обувь 2015-2016",
+        "description": "{{$page_prefix}} Купить обувь на зиму ❄❄❄ через Интернет - легко вместе с ❤Интертоп❤. Резервируйте понравившуюся модель на сайте - примеряйте в ближайшем магазине. Брендовая зимняя обувь для всей семьи по лучшим ценам.",
+        "page_title": "Зимняя обувь "
+      },
+      "ua": {
+        "page_prefix": "{{func(pager, pageNum, Сторінка)}}",
+        "meta_title": "{{$page_prefix}} INTERTOP.UA - Зимнє взуття 2015-2016",
+        "description": "{{$page_prefix}} Купити взуття на зиму ❄❄❄ через Інтернет - легко разом з ❤Інтертоп❤. Резервуйте модель, ща сподобалася на сайті - примірюйте в найближчому магазині. Брендове зимнє взуття для всієї родини по кращим цінам.",
+        "page_title": "Зимове взуття"
+      }
+    }
+  },
+  "#/catalog/good_type-([a-z\\d-]+)-size-([a-z\\d-]+)/(page(\\d+))?#": {
+    "__comment": "Обувь: вид товара + размер",
+    "uri_vars": [
+      "good_type",
+      "size",
+      "",
+      "pageNum"
+    ],
+    "compile": [
+      "seo"
+    ],
+    "code": "catalog_good_type_size",
+    "seo": {
+      "ru": {
+        "page_prefix": "{{func(pager, pageNum, Страница)}}",
+        "page_title": "{{$good_type $size}} размера",
+        "meta_title": "{{$page_prefix $page_title купить, цена, func(randomElement, описание|характеристики|отзывы), фото | INTERTOP.UA}}",
+        "description": "{{$page_prefix Купить $page_title в Интернет-магазине брендовой обуви ♛ INTERTOP. ☎(044)499-99-19. Бесплатная доставка в Киев, Харьков, func(randomElement, Запорожье\\, Днепропетровск|Одессу\\, Винницу\\, Львов), по Украине. func(randomElement, Редкие|Популярные|Другие) размеры в наличии и под заказ}}"
+      },
+      "ua": {
+        "page_prefix": "{{func(pager, pageNum, Сторінка)}}",
+        "page_title": "{{$good_type $size}} розміру",
+        "meta_title": "{{$page_prefix $page_title купити, ціна, func(randomElement, опис|характеристики|відгуки), фото | INTERTOP.UA}}",
+        "description": "{{$page_prefix Купити $page_title в Інтернет-магазині брендового взуття ♛ INTERTOP. ☎(044)499-99-19. Безкоштовна доставка в Київ, Харків, func(randomElement, Запоріжжя\\, Дніпропетровськ|Одесу\\, Вінницю\\, Львів), по Україні. func(randomElement, Найпопулярніші|Найпоширені) розміри в наявності та під замовлення}}"
+      }
+    }
+  }
+}
