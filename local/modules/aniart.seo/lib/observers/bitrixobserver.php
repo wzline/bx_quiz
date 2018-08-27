@@ -17,7 +17,7 @@ class BitrixObserver
 
     public static function onEpilog()
     {
-       // self::setSeoParams();
+        self::setSeoParams();
     }
 
     protected static function initAdditionalUserParams()

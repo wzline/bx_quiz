@@ -1,3 +1,3 @@
 <?php
 
-define('HL_SEO_PAGES_ID', 9);
+define('HL_SEO_PAGES_ID', 5);

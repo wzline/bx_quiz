@@ -20,6 +20,7 @@ app()->bind([
 	'Product' => '\Aniart\Main\Models\StubProduct'
 ]);
 app()->singleton([
+	/*
 	'SeoParamsCollector' => '\Aniart\Main\Seo\SeoParamsCollector',
 	'SeoPagesRepository' => function(\Aniart\Main\ServiceLocator $locator){
 		return new Aniart\Main\Repositories\SeoPagesRepository(HL_SEO_PAGES_ID);
@@ -32,6 +33,7 @@ app()->singleton([
 		} catch (Exception $e) {
 		}
 	},
+	*/
 	'ProductsRepository' => function(\Aniart\Main\ServiceLocator $locator){
 		return new \Aniart\Main\Repositories\StubProductsRepository(IB_PRODUCTS_ID);
 	}
